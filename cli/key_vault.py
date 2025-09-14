@@ -1,7 +1,7 @@
 import os
 import json
 from cryptography.fernet import Fernet
-from encryptor import generate_key
+from cli.encryptor import generate_key
 
 VAULT_FILE = "key_vault.enc"
 

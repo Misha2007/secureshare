@@ -28,11 +28,14 @@ def encrypt_file(filepath: str, key: bytes, output_path: str = None, delete_orig
         f.write(encrypted)
 
     if delete_original:
-        os.remove(filepath)
+        try:
+            os.remove(filepath)
+        except Exception as e:
+            raise Exception(f"Encryption succeeded but failed to delete original file: {e}")
 
     return output_path
 
-def decrypt_file(filepath: str, key: bytes, output_path: str = None) -> str:
+def decrypt_file(filepath: str, key: bytes, output_path: str = None, delete_original: bool = False) -> str:
     """
     Decrypts a file using a Fernet key.
     """
@@ -50,5 +53,11 @@ def decrypt_file(filepath: str, key: bytes, output_path: str = None) -> str:
 
     with open(output_path, "wb") as f:
         f.write(decrypted)
+
+    if delete_original:
+        try:
+            os.remove(filepath)
+        except Exception as e:
+            raise Exception(f"Decryption succeeded but failed to delete encrypted file: {e}")
 
     return output_path

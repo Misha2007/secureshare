@@ -55,3 +55,31 @@ QLineEdit:focus {
     border-color: #5599FF;
     outline: none;
 }
+
+QLabel#fileLabel {
+    qproperty-alignment: 'AlignLeft';
+}
+
+QCheckBox {
+    color: #EAE0D5;
+}
+
+QListWidget::item   {
+    color: #EAE0D5;
+    padding: 10px 3px;
+}
+
+QMenu {
+    background: #000;
+}
+
+QMenu::item {
+    color: #EAE0D5;
+    padding: 5px 0;
+    margin: 10px;
+}
+
+QMenu::item:selected  {
+    color: #5599FF;
+    border-bottom: 1px solid #fff;
+}

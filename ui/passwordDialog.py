@@ -1,8 +1,5 @@
-from PyQt6.QtWidgets import (
-    QDialog, QLabel, QLineEdit, QPushButton,
-    QVBoxLayout, QHBoxLayout
-)
-from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QDialog, QLabel, QLineEdit, QVBoxLayout, QHBoxLayout
+from ui.button import Button
 
 class PasswordDialog(QDialog):
     def __init__(self, prompt="Enter password:", parent=None):
@@ -21,18 +18,14 @@ class PasswordDialog(QDialog):
         self.input.setEchoMode(QLineEdit.EchoMode.Password)
         layout.addWidget(self.input)
 
-        # Buttons
         button_layout = QHBoxLayout()
-        self.ok_button = QPushButton("OK")
+        self.ok_button = Button("OK", cursor=True, clicked=self.accept).get_button()
         self.ok_button.setMinimumWidth(100)
-        self.ok_button.setMaximumWidth(300)
-        self.cancel_button = QPushButton("Cancel")
-        self.cancel_button.setMinimumWidth(100)
+        self.ok_button.setMaximumWidth(300) 
+        self.cancel_button = Button("Cancel", cursor=True, clicked=self.reject).get_button()
+        self.cancel_button.setMinimumWidth(100) 
         self.cancel_button.setMaximumWidth(300)
         self.cancel_button.setObjectName("cancel")
-
-        self.ok_button.clicked.connect(self.accept)
-        self.cancel_button.clicked.connect(self.reject)
 
         button_layout.addStretch()
         button_layout.addWidget(self.cancel_button)

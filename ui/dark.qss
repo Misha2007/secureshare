@@ -12,7 +12,7 @@ QPushButton {
     color: #EAE0D5;
     padding: 5px;
     font-size: 15px;
-    border: 2px solid #22333B;
+    border: 1px solid #22333B;
     border-radius: 7px;
 }
 
@@ -34,7 +34,6 @@ QPushButton#cancel {
     background-color: #C6AC8F;
     color: #000;
     width: 50px;
-    
 }
 
 QLineEdit {
@@ -56,13 +55,10 @@ QLineEdit:focus {
     outline: none;
 }
 
-QLabel#fileLabel {
-    qproperty-alignment: 'AlignLeft';
-}
-
 QCheckBox {
     color: #EAE0D5;
 }
+
 
 QListWidget::item   {
     color: #EAE0D5;
@@ -82,4 +78,36 @@ QMenu::item {
 QMenu::item:selected  {
     color: #5599FF;
     border-bottom: 1px solid #fff;
+}
+
+QTabWidget::pane {
+    border: 1px solid #444;
+    background: #222;
+}
+QTabBar::tab {
+    background: #22333B;
+    color: #ffffffff;
+    padding: 8px 16px;
+}
+QTabBar::tab:selected {
+    background: #5599FF;
+    color: #000;
+}
+
+QTabBar::tab:first {
+    border-top-left-radius: 5px; 
+}
+
+QTabBar::tab:last {
+    border-top-right-radius: 5px; 
+}
+
+QComboBox {
+    background: 1px #22333B solid;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+QLabel {
+    qproperty-alignment: 'AlignLeft';
 }

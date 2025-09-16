@@ -5,6 +5,7 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import Qt
 from cli.key_vault import list_aliases, delete_key, rename_key, get_key
 from ui.passwordDialog import PasswordDialog
+from ui.button import Button
 
 class AliasManagerDialog(QDialog):
     def __init__(self, parent=None):
@@ -28,9 +29,9 @@ class AliasManagerDialog(QDialog):
 
         # Optional buttons (keep them if you like)
         btn_layout = QHBoxLayout()
-        self.rename_btn = QPushButton("Rename")
-        self.delete_btn = QPushButton("Delete")
-        self.backup_btn = QPushButton("View Backup Key")
+        self.rename_btn = Button("Rename", cursor=True).get_button()
+        self.delete_btn = Button("Delete", cursor=True).get_button()
+        self.backup_btn = Button("View Backup Key", cursor=True).get_button()
         for b in (self.rename_btn, self.delete_btn, self.backup_btn):
             btn_layout.addWidget(b)
         layout.addLayout(btn_layout)

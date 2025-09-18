@@ -1,2 +1,0 @@
-cryptography==3.4.7
-argparse==1.4.0

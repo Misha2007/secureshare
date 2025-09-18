@@ -129,7 +129,6 @@ class EncryptionApp(QWidget):
         self.file_input.setPlaceholderText("Enter a full path to your file here")
         file_layout.addWidget(self.file_input)
         self.browse_btn = Button("Browse", cursor=True, clicked = self.browse_file).get_button()
-        layout.addWidget(self.manage_keys_btn)
         file_layout.addWidget(self.browse_btn)
         layout.addLayout(file_layout)
 

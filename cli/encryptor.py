@@ -2,6 +2,7 @@ import os
 import hashlib
 import base64
 from cryptography.fernet import Fernet
+import zlib
 
 def generate_key(password: str) -> bytes:
     """
@@ -20,6 +21,7 @@ def encrypt_file(filepath: str, key: bytes, output_path: str = None, delete_orig
     fernet = Fernet(key)
     with open(filepath, "rb") as f:
         data = f.read()
+        data = zlib.compress(data)
 
     encrypted = fernet.encrypt(data)
     output_path = output_path or (filepath + ".enc")
@@ -47,6 +49,7 @@ def decrypt_file(filepath: str, key: bytes, output_path: str = None, delete_orig
         encrypted = f.read()
 
     decrypted = fernet.decrypt(encrypted)
+    decrypted = zlib.decompress(decrypted)  
 
     if not output_path:
         output_path = filepath[:-4] if filepath.endswith(".enc") else filepath + ".dec"

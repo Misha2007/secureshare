@@ -29,6 +29,7 @@ class AliasManagerDialog(QDialog):
 
         # Optional buttons (keep them if you like)
         btn_layout = QHBoxLayout()
+        print(self.master_pwd)
         self.rename_btn = Button("Rename", cursor=True).get_button()
         self.delete_btn = Button("Delete", cursor=True).get_button()
         self.backup_btn = Button("View Backup Key", cursor=True).get_button()

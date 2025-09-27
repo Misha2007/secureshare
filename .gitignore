@@ -3,3 +3,6 @@
 /venv
 key_vault.enc
 *.jpg
+/build
+/dist
+app.spec

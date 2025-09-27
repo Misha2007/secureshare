@@ -1,0 +1,10 @@
+altgraph==0.17.4
+cffi==2.0.0
+cryptography==3.4.7
+packaging==25.0
+pycparser==2.23
+pyinstaller==6.16.0
+pyinstaller-hooks-contrib==2025.9
+PyQt6==6.9.1
+PyQt6-Qt6==6.9.2
+PyQt6_sip==13.10.2

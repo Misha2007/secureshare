@@ -225,7 +225,14 @@ class EncryptionApp(QWidget):
 
 
 def load_stylesheet(filename):
-    with open(filename, "r") as f:
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.dirname(__file__)
+
+    file_path = os.path.join(base_path, filename)
+
+    with open(file_path, "r") as f:
         return f.read()
 
 
